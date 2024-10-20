@@ -8,6 +8,20 @@ package modelo;
  *
  * @author d2tod
  */
-public class NewClass {
-    
+public class Campo {
+
+    private Icon icono;
+
+    public Campo() {
+        this.icono = Icon.SIETE;
+    }
+
+    public Icon getIcono() {
+        return icono;
+    }
+
+    public void setIcono(Icon icono) {
+        this.icono = icono;
+    }
+
 }
