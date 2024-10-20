@@ -72,7 +72,7 @@ public class FrmTragaPerras extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 280, 160));
         jPanel1.add(palanca, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 110, 50, 40));
 
-        traga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pngwing.com.png"))); // NOI18N
+        traga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tragaperras.png"))); // NOI18N
         jPanel1.add(traga, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 15, 501, 543));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
