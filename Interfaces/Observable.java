@@ -11,5 +11,5 @@ package Interfaces;
 public interface Observable {
     public void setObservador(Observador observer);
 
-    public void emitirSeñal(Object señal);
+    public void emitirSeñal(Object señal, char id);
 }

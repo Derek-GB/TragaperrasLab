@@ -15,18 +15,20 @@ public class Campo implements Observable {
 
     private Icon icono;
     private Observador observador;
+    private char id;
 
-    public Campo() {
+    public Campo(char id) {
         this.icono = Icon.SIETE;
+        this.id = id;
     }
 
     public Icon getIcono() {
         return icono;
     }
 
-    public void setIcono(Icon icono) {
+    public void cambiarIcono(Icon icono) {
         this.icono = icono;
-    }
+        emitirSeñal(icono,id);    }
 
     @Override
     public void setObservador(Observador observador) {
@@ -34,8 +36,8 @@ public class Campo implements Observable {
     }
 
     @Override
-    public void emitirSeñal(Object señal) {
-        observador.actulizar(señal);
+    public void emitirSeñal(Object señal, char id) {
+        observador.actulizar(señal, id);
     }
 
 }

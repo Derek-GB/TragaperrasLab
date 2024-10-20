@@ -13,8 +13,18 @@ import Interfaces.Observador;
 public class Controlador implements Observador {
 
     @Override
-    public void actulizar(Object señal) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void actulizar(Object señal, char id) {
+        switch (id){
+            case('i')->{
+                
+            }
+            case('c')->{
+                
+            }
+            case('d')->{
+                
+            }
+        }
     }
     
 }

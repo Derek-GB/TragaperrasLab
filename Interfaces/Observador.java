@@ -9,5 +9,5 @@ package Interfaces;
  * @author d2tod
  */
 public interface Observador {
-    public void actulizar(Object señal);
+    public void actulizar(Object señal, char id);
 }
