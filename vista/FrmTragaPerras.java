@@ -4,6 +4,10 @@
  */
 package vista;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Fernando
@@ -13,8 +17,67 @@ public class FrmTragaPerras extends javax.swing.JFrame {
     /**
      * Creates new form FrmTragaPerras
      */
+    Boolean iniciar=false;
     public FrmTragaPerras() {
         initComponents();
+        
+    }
+    
+    public void actulizarCampo(modelo.Icon icon, char id) {
+        switch (id){
+            case('i')->{
+                cambiarImagen(icon, campoI);
+            }
+            case('c')->{
+                cambiarImagen(icon, campoC);
+            }
+            case('d')->{
+                cambiarImagen(icon, campoD);
+            }
+        }
+    }
+    
+    public void cambiarImagen(modelo.Icon icon,javax.swing.JLabel cosa){
+        switch (icon){
+            case(icon.BAR)->{
+                ajustarImagen("/imagenes/bar.png", cosa);
+            }
+            case(icon.CAMPANAS)->{
+                ajustarImagen("/imagenes/bell.png", cosa);
+                
+            }
+            case(icon.CEREZAS)->{
+                 ajustarImagen("/imagenes/cherrys.png", cosa);
+            }
+            case(icon.ESTRELLA)->{
+                 ajustarImagen("/imagenes/stars.png", cosa);
+            }
+            case(icon.LIMONES)->{
+                 ajustarImagen("/imagenes/lemons.png", cosa);
+            }
+            case(icon.NARANJAS)->{
+                 ajustarImagen("/imagenes/oranges.png", cosa);
+            }
+            case(icon.SANDIAS)->{
+                 ajustarImagen("/imagenes/watermelon.png", cosa);
+            }
+            case(icon.SIETE)->{
+                 ajustarImagen("/imagenes/seven.png", cosa);
+            }
+            case(icon.UVAS)->{
+                 ajustarImagen("/imagenes/grapes.png", cosa);
+            }
+        }
+    }
+   
+    
+    
+    
+    
+    private void ajustarImagen(String ubicacion, javax.swing.JLabel casilla) {
+        ImageIcon image = new ImageIcon(getClass().getResource(ubicacion));
+        Icon icon = new ImageIcon(image.getImage().getScaledInstance(casilla.getWidth(), casilla.getHeight(), Image.SCALE_DEFAULT));
+        casilla.setIcon(icon);
     }
 
     /**
@@ -70,6 +133,12 @@ public class FrmTragaPerras extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 280, 160));
+
+        palanca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                palancaMouseClicked(evt);
+            }
+        });
         jPanel1.add(palanca, new org.netbeans.lib.awtextra.AbsoluteConstraints(421, 110, 50, 40));
 
         traga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tragaperras.png"))); // NOI18N
@@ -89,6 +158,10 @@ public class FrmTragaPerras extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void palancaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_palancaMouseClicked
+    iniciar=true;
+    }//GEN-LAST:event_palancaMouseClicked
 
     /**
      * @param args the command line arguments
