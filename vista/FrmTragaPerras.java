@@ -17,63 +17,64 @@ public class FrmTragaPerras extends javax.swing.JFrame {
     /**
      * Creates new form FrmTragaPerras
      */
-    Boolean iniciar=false;
+    Boolean iniciar;
+
     public FrmTragaPerras() {
         initComponents();
-        
+        iniciar = false;
     }
-    
+
+    public Boolean getIniciar() {
+        return iniciar;
+    }
+
     public void actulizarCampo(modelo.Icon icon, char id) {
-        switch (id){
-            case('i')->{
+        switch (id) {
+            case ('i') -> {
                 cambiarImagen(icon, campoI);
             }
-            case('c')->{
+            case ('c') -> {
                 cambiarImagen(icon, campoC);
             }
-            case('d')->{
+            case ('d') -> {
                 cambiarImagen(icon, campoD);
             }
         }
     }
-    
-    public void cambiarImagen(modelo.Icon icon,javax.swing.JLabel cosa){
-        switch (icon){
-            case(icon.BAR)->{
+
+    public void cambiarImagen(modelo.Icon icon, javax.swing.JLabel cosa) {
+        switch (icon) {
+            case (icon.BAR) -> {
                 ajustarImagen("/imagenes/bar.png", cosa);
             }
-            case(icon.CAMPANAS)->{
+            case (icon.CAMPANAS) -> {
                 ajustarImagen("/imagenes/bell.png", cosa);
-                
+
             }
-            case(icon.CEREZAS)->{
-                 ajustarImagen("/imagenes/cherrys.png", cosa);
+            case (icon.CEREZAS) -> {
+                ajustarImagen("/imagenes/cherrys.png", cosa);
             }
-            case(icon.ESTRELLA)->{
-                 ajustarImagen("/imagenes/stars.png", cosa);
+            case (icon.ESTRELLA) -> {
+                ajustarImagen("/imagenes/stars.png", cosa);
             }
-            case(icon.LIMONES)->{
-                 ajustarImagen("/imagenes/lemons.png", cosa);
+            case (icon.LIMONES) -> {
+                ajustarImagen("/imagenes/lemons.png", cosa);
             }
-            case(icon.NARANJAS)->{
-                 ajustarImagen("/imagenes/oranges.png", cosa);
+            case (icon.NARANJAS) -> {
+                ajustarImagen("/imagenes/oranges.png", cosa);
             }
-            case(icon.SANDIAS)->{
-                 ajustarImagen("/imagenes/watermelon.png", cosa);
+            case (icon.SANDIAS) -> {
+                ajustarImagen("/imagenes/watermelon.png", cosa);
             }
-            case(icon.SIETE)->{
-                 ajustarImagen("/imagenes/seven.png", cosa);
+            case (icon.SIETE) -> {
+                ajustarImagen("/imagenes/seven.png", cosa);
             }
-            case(icon.UVAS)->{
-                 ajustarImagen("/imagenes/grapes.png", cosa);
+            case (icon.UVAS) -> {
+                ajustarImagen("/imagenes/grapes.png", cosa);
             }
         }
     }
-   
-    
-    
-    
-    
+
     private void ajustarImagen(String ubicacion, javax.swing.JLabel casilla) {
         ImageIcon image = new ImageIcon(getClass().getResource(ubicacion));
         Icon icon = new ImageIcon(image.getImage().getScaledInstance(casilla.getWidth(), casilla.getHeight(), Image.SCALE_DEFAULT));
@@ -160,7 +161,7 @@ public class FrmTragaPerras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void palancaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_palancaMouseClicked
-    iniciar=true;
+        iniciar = true;
     }//GEN-LAST:event_palancaMouseClicked
 
     /**

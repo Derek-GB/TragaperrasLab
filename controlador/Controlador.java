@@ -18,13 +18,12 @@ public class Controlador implements Observador {
     private Campo campoI;
     private Campo campoC;
     private Campo campoD;
-    private boolean inicio;
 
     public Controlador(FrmTragaPerras frm) {
         this.frm = frm;
-        this.campoI = new Campo('i',velocidadInicial());
-        this.campoC = new Campo('c',velocidadInicial());
-        this.campoD = new Campo('d',velocidadInicial());
+        this.campoI = new Campo('i', velocidadInicial());
+        this.campoC = new Campo('c', velocidadInicial());
+        this.campoD = new Campo('d', velocidadInicial());
     }
 
     @Override
@@ -32,10 +31,39 @@ public class Controlador implements Observador {
         frm.actulizarCampo((modelo.Icon) señal, id);
     }
 
-    public int velocidadInicial (){
-        return (int) (Math.random()*10);
+    public int velocidadInicial() {
+        return (int) (Math.random() * 10);
     }
-    
-    
-    
+
+    public void jugar() {
+        while (!frm.getIniciar()) {
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                System.out.println("Algo salio terriblemente mal");
+            }
+
+            this.campoI.setObservador(this);
+            this.campoC.setObservador(this);
+            this.campoD.setObservador(this);
+
+            this.campoI.start();
+            this.campoC.start();
+            this.campoD.start();
+            try {
+                Thread.sleep(9000);
+            } catch (InterruptedException e) {
+                System.out.println("Algo salio terriblemente mal");
+
+            }
+
+            this.campoI.detener();
+            this.campoC.detener();
+            this.campoD.detener();
+
+        }
+
+    }
+
 }
