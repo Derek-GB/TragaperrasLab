@@ -32,16 +32,18 @@ public class Controlador implements Observador {
     }
 
     public int velocidadInicial() {
-        return (int) (Math.random() * 10);
+        return (int) (Math.random() * 100);
     }
 
     public void jugar() {
-        while (!frm.getIniciar()) {
+        do {
+            while (!frm.getIniciar()) {
 
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                System.out.println("Algo salio terriblemente mal");
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    System.out.println("Algo salio terriblemente mal");
+                }
             }
 
             this.campoI.setObservador(this);
@@ -61,9 +63,10 @@ public class Controlador implements Observador {
             this.campoI.detener();
             this.campoC.detener();
             this.campoD.detener();
+            
+            frm.setIniciar(false);
 
-        }
-
+        } while (true);
     }
 
 }

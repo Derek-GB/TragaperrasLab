@@ -28,6 +28,10 @@ public class FrmTragaPerras extends javax.swing.JFrame {
         return iniciar;
     }
 
+    public void setIniciar(Boolean iniciar) {
+        this.iniciar = iniciar;
+    }
+
     public void actulizarCampo(modelo.Icon icon, char id) {
         switch (id) {
             case ('i') -> {
