@@ -35,38 +35,47 @@ public class Controlador implements Observador {
         return (int) (Math.random() * 100);
     }
 
-    public void jugar() {
-        do {
-            while (!frm.getIniciar()) {
-
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    System.out.println("Algo salio terriblemente mal");
-                }
-            }
-
-            this.campoI.setObservador(this);
-            this.campoC.setObservador(this);
-            this.campoD.setObservador(this);
-
-            this.campoI.start();
-            this.campoC.start();
-            this.campoD.start();
+  public void jugar() {
+    do {
+        
+        while (!frm.getIniciar()) {
             try {
-                Thread.sleep(9000);
+                Thread.sleep(100); 
             } catch (InterruptedException e) {
-                System.out.println("Algo salio terriblemente mal");
-
+                System.out.println("Algo salió terriblemente mal");
             }
+        }
 
-            this.campoI.detener();
-            this.campoC.detener();
-            this.campoD.detener();
-            
-            frm.setIniciar(false);
+      
+        this.campoI = new Campo('i', velocidadInicial());
+        this.campoC = new Campo('c', velocidadInicial());
+        this.campoD = new Campo('d', velocidadInicial());
 
-        } while (true);
-    }
+       
+        this.campoI.setObservador(this);
+        this.campoC.setObservador(this);
+        this.campoD.setObservador(this);
+
+      
+        this.campoI.start();
+        this.campoC.start();
+        this.campoD.start();
+
+        try {
+            Thread.sleep(9000); 
+        } catch (InterruptedException e) {
+            System.out.println("Algo salió terriblemente mal");
+        }
+
+       
+        this.campoI.detener();
+        this.campoC.detener();
+        this.campoD.detener();
+
+       
+        frm.setIniciar(false);
+
+    } while (true); 
+}
 
 }
