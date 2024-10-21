@@ -22,14 +22,20 @@ public class Controlador implements Observador {
 
     public Controlador(FrmTragaPerras frm) {
         this.frm = frm;
-        this.campoI = new Campo('i');
-        this.campoC = new Campo('c');
-        this.campoD = new Campo('d');
+        this.campoI = new Campo('i',velocidadInicial());
+        this.campoC = new Campo('c',velocidadInicial());
+        this.campoD = new Campo('d',velocidadInicial());
     }
 
     @Override
     public void actulizar(Object señal, char id) {
-        frm.actualizar((modelo.Icon) señal, id);
+        frm.actulizarCampo((modelo.Icon) señal, id);
     }
 
+    public int velocidadInicial (){
+        return (int) (Math.random()*10);
+    }
+    
+    
+    
 }
