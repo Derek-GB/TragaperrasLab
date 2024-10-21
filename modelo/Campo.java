@@ -11,24 +11,47 @@ import Interfaces.Observador;
  *
  * @author d2tod
  */
-public class Campo implements Observable {
+public class Campo extends Thread implements Observable {
 
-    private Icon icono;
+    private boolean stop;
+    private int cont;
+    private int velocidad;
+    private Icon[] iconos;
     private Observador observador;
     private char id;
 
-    public Campo(char id) {
-        this.icono = Icon.SIETE;
+    public Campo(char id, int velocidad) {
+        this.iconos = inicializarIconos();
         this.id = id;
+        this.cont = 0;
+        this.velocidad = velocidad;
     }
 
+    public void detener(){
+        this.stop = true;
+    }
+    
     public Icon getIcono() {
-        return icono;
+        return iconos[cont];
     }
 
-    public void cambiarIcono(Icon icono) {
-        this.icono = icono;
-        emitirSeñal(icono,id);    }
+    public void cambiarIcono() {
+        emitirSeñal(nextIcon(), id);
+    }
+
+    private Icon nextIcon() {
+        cont++;
+        if (cont >= iconos.length) {
+            cont = 0;
+        }
+        return iconos[cont];
+    }
+
+    private Icon[] inicializarIconos() {
+        return new Icon[]{
+            Icon.SIETE, Icon.LIMONES, Icon.NARANJAS, Icon.SANDIAS, Icon.UVAS, Icon.CEREZAS, Icon.CAMPANAS, Icon.BAR, Icon.ESTRELLA
+        };
+    }
 
     @Override
     public void setObservador(Observador observador) {
@@ -38,6 +61,19 @@ public class Campo implements Observable {
     @Override
     public void emitirSeñal(Object señal, char id) {
         observador.actulizar(señal, id);
+    }
+
+    @Override
+    public void run() {
+        stop = false;
+        do {
+            cambiarIcono();
+            try {
+                Thread.sleep(velocidad += velocidad / 10);
+            } catch (InterruptedException e) {
+
+            }
+        } while (!stop);
     }
 
 }

@@ -19,35 +19,17 @@ public class Controlador implements Observador {
     private Campo campoC;
     private Campo campoD;
     private boolean inicio;
-    
-    
-    
 
     public Controlador(FrmTragaPerras frm) {
-      this.frm = frm;  
-        this.campoI=frm.campoI();
-        this.campoC=frm.campoC();
-        this.campoD=frm.campoD();
-        
+        this.frm = frm;
+        this.campoI = new Campo('i');
+        this.campoC = new Campo('c');
+        this.campoD = new Campo('d');
     }
-    
-    
-    
-    
-    
+
     @Override
     public void actulizar(Object señal, char id) {
-        switch (id){
-            case('i')->{
-                
-            }
-            case('c')->{
-                
-            }
-            case('d')->{
-                
-            }
-        }
+        frm.actualizar((modelo.Icon) señal, id);
     }
-    
+
 }
