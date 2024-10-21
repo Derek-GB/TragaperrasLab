@@ -66,12 +66,17 @@ public class Campo extends Thread implements Observable {
     @Override
     public void run() {
         stop = false;
+        int timeSleep = velocidad + 1;
+        int maxTime = velocidad * 100;
         do {
             cambiarIcono();
             try {
-                Thread.sleep(velocidad += velocidad / 10);
+                Thread.sleep(timeSleep += timeSleep / 10);
             } catch (InterruptedException e) {
 
+            }
+            if (timeSleep >= maxTime){
+                timeSleep = maxTime;
             }
         } while (!stop);
     }
