@@ -5,6 +5,8 @@
 package controlador;
 
 import Interfaces.Observador;
+import modelo.Campo;
+import vista.FrmTragaPerras;
 
 /**
  *
@@ -12,6 +14,27 @@ import Interfaces.Observador;
  */
 public class Controlador implements Observador {
 
+    private FrmTragaPerras frm;
+    private Campo campoI;
+    private Campo campoC;
+    private Campo campoD;
+    private boolean inicio;
+    
+    
+    
+
+    public Controlador(FrmTragaPerras frm) {
+      this.frm = frm;  
+        this.campoI=frm.campoI();
+        this.campoC=frm.campoC();
+        this.campoD=frm.campoD();
+        
+    }
+    
+    
+    
+    
+    
     @Override
     public void actulizar(Object señal, char id) {
         switch (id){
